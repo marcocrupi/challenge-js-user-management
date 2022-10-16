@@ -1,0 +1,9 @@
+a {
+  outline: none;
+  text-decoration: none;
+  color: black;
+}
+
+button {
+    cursor: pointer;
+}
