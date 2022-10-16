@@ -12,5 +12,5 @@ document.querySelector("#submitLogin").addEventListener("click", async e => {
     })
   })
   const data = await response.json()
-  sessionStorage.setItem("token", `${data.token}`)
+  sessionStorage.setItem("token", data.token)
 })
