@@ -11,6 +11,10 @@ document.querySelector("#submitLogin").addEventListener("click", async e => {
       password: document.querySelector("#passwordLogin").value
     })
   })
-  const data = await response.json()
-  sessionStorage.setItem("token", data.token)
+
+  // salva token solo se account viene trovato
+  if(response.ok) {
+    const data = await response.json()
+    sessionStorage.setItem("token", data.token)
+  }
 })
