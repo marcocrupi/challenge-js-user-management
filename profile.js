@@ -1,54 +1,42 @@
-async()=>{
-    const response= await fetch(
-        "https://api-nodejs-todolist.herokuapp.com/user/me",
-        {
-            method: "GET",
-            headers: { Authentication: "Bearer"+ token}
-        }
-    )
+const token = sessionStorage.getItem("token");
+console.log("token in session storage:", token);
 
-if(response.ok){
-    const data=await response.json();
-    sessionStorage.getItem("token",data.token);
-}
-else{
-    throw new Error(`HTTP error: ${response.status}`);
-}
+async function getUser() {
+  try {
+    const response = await fetch(
+      "https://api-nodejs-todolist.herokuapp.com/user/me",
+      {
+        method: "GET",
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+      }
+    );
+
+    if (response.ok) {
+      const data = await response.json();
+      console.log(data);
+      document
+        .getElementById("divParent")
+        .insertAdjacentHTML("beforeend", injectHtml(data));
+    } else {
+      throw new Error(`HTTP error: ${response.status}`);
+    }
+  } catch (error) {
+    console.error(`Catch: ${error}`);
+  }
 }
 
-//Data
-const data = [{"email":"mail@mail","fullName":"Geggio Geggi","age":24}]; //per ora dummy
+getUser();
 
-//function
-function injectHtml() {
-  return data.map((item) => {
-      const {email,fullName,age} = item;
-      //HTML
-      return `
+function injectHtml(data) {
+  return `
       <div class="Dati">
-        <p class="email">${email}</p>
-        <p class="fullName">${fullName}</p>
-        <p class="age">${age}</p>
+        <p class="email">${data.email}</p>
+        <p class="fullName">${data.name}</p>
+        <p class="age">${data.age}</p>
       </div>
       `;
-    });
 }
-
-//DOM
-document.getElementById("divParent").insertAdjacentHTML("beforeend", injectHtml(data));
-
-
-// // versione per object
-
-// async function injectHtml(){
-//   const {email, fullName, age} = data;
-//   const container = document.getElementById("divParent");
-//   container.innerHTML=`
-//   <div class="Dati">
-//   <p class="email">${email}</p>
-//   <p class="fullName">${fullName}</p>
-//   <p class="age">${age}</p>
-//   </div>
-//   `;
-//   }
-// injectHtml()
