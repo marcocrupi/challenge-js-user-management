@@ -10,6 +10,11 @@ document
     const name = document.querySelector("#nameRegistration").value;
     const age = document.querySelector("#ageRegistration").value;
 
+    if (pwd.length < 8) {
+      alert("Password length must be atleast 8 characters");
+      return false;
+    }
+
     const response = await fetch(URL, {
       method: "POST",
       headers: {
