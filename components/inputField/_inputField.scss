@@ -1,0 +1,115 @@
+.inputField {
+
+  // Internal Variables
+  $inputFieldPadding: $size-12;
+  $focusColor: var(--blue-a700);
+  $validColor: var(--green-a700);
+  $invalidColor: var(--red-a400);
+  $animationTime: 0.3s;
+  // Animations
+  @keyframes shake {
+    0% { transform: translateX(0%); }
+    25% { transform: translateX(3%); }
+    50% { transform: translateX(-2%); }
+    75% { transform: translateX(1%); }
+    100% { transform: translateX(0%); }
+  }
+
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  .fieldContainer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    label {
+      position: absolute;
+      top: 50%;
+      left: calc($inputFieldPadding - 4px);
+      transform: translateY(-50%);
+      margin-top: -1px;
+      color: var(--blue-grey-300);
+      font-weight: normal;
+      line-height: 1;
+      font-size: $size-16;
+      padding: 4px;
+      background-color: white;
+      transition-property: top, font-size;
+      transition-duration: 0.1s;
+      transition-timing-function: ease-in-out;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    // Change color when input= invalid & out of focus (This must stay at the top before the next line of code)
+    input:invalid:not(:placeholder-shown) ~ label {
+      color: $invalidColor;
+    }
+    // Change color when input= valid & out of focus (This must stay at the top before the next line of code)
+    input:valid:not(:placeholder-shown) ~ label {
+      color: $validColor;
+    }
+    // Keep color when input = focus and/but also input = invalid
+    input:focus ~ label,
+    input:valid:focus ~ label,
+    input:invalid:focus ~ label {
+      color: $focusColor;
+    }
+    // Move label at the top & stays at the top when input is not longer focused
+    input:focus ~ label,
+    input:not(:placeholder-shown) ~ label {
+      top: 0;
+      font-size: $size-14;
+    }
+
+    input {
+      background-color: white;
+      font-size: $size-16;
+      font-weight: normal;
+      color: black;
+      padding: $inputFieldPadding;
+      outline-width: 1px;
+      outline-style: solid;
+      outline-color: var(--blue-grey-200);
+      border-radius: 2px;
+    }
+    // Change input outline color when input=invalid & out of focus (This must stay at the top before the next line of code)
+    input:invalid:not(:placeholder-shown) {
+      outline-color: $invalidColor;
+    }
+    // Change input outline color when input=valid & out of focus (This must stay at the top before the next line of code)
+    input:valid:not(:placeholder-shown) {
+      outline-color: $validColor;
+    }
+    // Keep 'positive' color when input = focus and/but also invalid
+    input:focus,
+    input:valid:focus,
+    input:invalid:focus {
+      outline-color: $focusColor;
+    }
+    //Animate shake input when invalid is not focused
+    input:not(:focus):invalid:not(:placeholder-shown) {
+      animation: shake $animationTime ease-in-out;
+    }
+  }
+
+  .fieldMessage {
+    align-self: flex-start;
+    font-size: $size-14;
+    font-weight: normal;
+    line-height: 1.2;
+    margin-top: $size-12;
+    color: var(--red-500);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &[data-message=password] {
+      color: var(--blue-a700);
+    }
+  }
+}

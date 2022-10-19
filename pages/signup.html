@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create account</title>
+  <link rel="stylesheet" href="styles.css" type="text/css">
+  <script src="../registration.js" defer></script>
+</head>
+<body>
+
+  <main>
+    <section style="background-image: url(../images/abstract-background.jpg)">
+      <div class="sectionContent">
+        <img class="logo" src="../images/logo.png" alt="Image of the logo">
+        <div class="textContainer">
+          <h1>Create account</h1>
+          <p>Do you have an account?<br><a href="login.html">Login</a></p>
+        </div>
+        <h6><a href="">www.companywebsite.com</a></h6>
+      </div>
+    </section>
+    <section>
+      <div class="sectionContent">
+        <!-- Form Component -->
+        <form class="form">
+          <h2>Sign up:</h2>
+          <!-- Input field component -->
+          <div class="inputField">
+            <div class="fieldContainer">
+              <input type="text" id="nameRegistration" required placeholder=" ">
+              <label for="nameRegistration">Name</label>
+            </div>
+          </div>
+          <!-- Input field component -->
+          <div class="inputField">
+            <div class="fieldContainer">
+              <input type="number" id="ageRegistration" required placeholder=" ">
+              <label for="ageRegistration">Age</label>
+            </div>
+          </div>
+          <!-- Input field component -->
+          <div class="inputField">
+            <div class="fieldContainer">
+              <input type="email" id="emailRegistration" required placeholder=" ">
+              <label for="emailRegistration">Email</label>
+            </div>
+          </div>
+          <!-- Input field component -->
+          <div class="inputField">
+            <div class="fieldContainer">
+              <input type="password" id="passwordRegistration" required placeholder=" ">
+              <label for="passwordRegistration">Password</label>
+            </div>
+            <a href="" class="fieldMessage" data-message="password">Forgot password?</a>
+          </div>
+          <button class="buttonPrimary" data-size="large" type="submit" id="submitRegistration"><span>Sign up</span></button>
+          <p class="formLinkToSignUp">Do you have an account? <a href="login.html">Login</a></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
