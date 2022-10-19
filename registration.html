@@ -19,7 +19,7 @@
             <br>
             <div class="input-group">
                 <label for="password" class="label">Password</label>
-                <input type="password" id="passwordRegistration" class="input">
+                <input type="password" id="passwordRegistration" class="input" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
                 <span class="error-message"></span>
             </div>
             <br>
@@ -38,6 +38,6 @@
             <button class="button" type="submit" id="submitRegistration">Registrati ora</button> 
         </form>
     </div>
-    <script src="./registration.js"></script>
+    <script src="./registration.js" defer></script>
 </body>
 </html>

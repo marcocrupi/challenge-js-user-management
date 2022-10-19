@@ -4,19 +4,23 @@ document
     e.preventDefault();
 
   try {
-    const URL = "https://api-nodejs-todolist.herokuapp.com";
-    const ENDPOINT = "/user/register";
+    const URL = "https://api-nodejs-todolist.herokuapp.com/user/register";
+    const email = document.querySelector("#emailRegistration").value;
+    const pwd = document.querySelector("#passwordRegistration").value;
+    const name = document.querySelector("#nameRegistration").value;
+    const age = document.querySelector("#ageRegistration").value;
 
-    const response = await fetch(URL + ENDPOINT, {
+    const response = await fetch(URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
+
       body: JSON.stringify({
-        email: document.querySelector("#emailRegistration").value,
-        password: document.querySelector("#passwordRegistration").value,
-        name: document.querySelector("#nameRegistration").value,
-        age: document.querySelector("#ageRegistration").value,
+        email: email,
+        password: pwd,
+        name: name,
+        age: age,
       }),
     });
     console.log(response);
