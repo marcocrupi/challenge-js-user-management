@@ -1,22 +1,42 @@
+const token = sessionStorage.getItem("token");
+console.log("token in session storage:", token);
 
+async function getUser() {
+  try {
+    const response = await fetch(
+      "https://api-nodejs-todolist.herokuapp.com/user/me",
+      {
+        method: "GET",
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+      }
+    );
 
-//Data
-const data = [{"email":"mail@mail","fullName":"Geggio Geggi","age":24}]; //per ora dummy
-
-//function
-function injectHtml() {
-  return data.map((item) => {
-      const {email,fullName,age} = item;
-      //HTML
-      return `
-      <div class="block">
-        <p class="email">${email}</p>
-        <p class="fullName">${fullName}</p>
-        <p class="age">${age}</p>
-      </div>
-      `;
-    });
+    if (response.ok) {
+      const data = await response.json();
+      console.log(data);
+      document
+        .getElementById("divParent")
+        .insertAdjacentHTML("beforeend", injectHtml(data));
+    } else {
+      throw new Error(`HTTP error: ${response.status}`);
+    }
+  } catch (error) {
+    console.error(`Catch: ${error}`);
+  }
 }
 
-//DOM
-document.getElementById("divParent").insertAdjacentHTML("beforeend", injectHtml(data));
+getUser();
+
+function injectHtml(data) {
+  return `
+      <div class="Dati">
+        <p class="email">${data.email}</p>
+        <p class="fullName">${data.name}</p>
+        <p class="age">${data.age}</p>
+      </div>
+      `;
+}
