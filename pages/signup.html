@@ -34,7 +34,7 @@
           <!-- Input field component -->
           <div class="inputField">
             <div class="fieldContainer">
-              <input type="number" id="ageRegistration" required placeholder=" ">
+              <input type="number" id="ageRegistration" required placeholder=" " min="0" max="150" onkeyup="imposeMinMax(this)">
               <label for="ageRegistration">Age</label>
             </div>
           </div>
