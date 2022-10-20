@@ -28,3 +28,17 @@ document.querySelector("#submitLogin").addEventListener("click", async (e) => {
     console.error(`Catch: ${error}`);
   }
 });
+
+const validatePassword = () => {
+  const password = document.getElementById("passwordLogin").value;
+  const regularExpression = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
+  if (!regularExpression.test(password)) {
+    document.getElementById("message").innerHTML =
+      "Password should contain at least one number, a lower-case letter, an upper-case letter and 8 or more characters";
+    return false;
+  } else {
+    document.getElementById("message").innerHTML =
+      "";
+  }
+};
