@@ -14,7 +14,7 @@
         <img class="logo" src="../images/logo.png" alt="Image of the logo">
         <div class="textContainer">
           <h1>Welcome back!</h1>
-          <p>Don't have an account?<br><a href="signup.html">Sign up</a></p>
+          <p>Don't have an account?<br><a href="pages/signup.html">Sign up</a></p>
         </div>
         <h6><a href="">www.companywebsite.com</a></h6>
       </div>
@@ -36,12 +36,12 @@
             <div class="fieldContainer">
               <input type="password" id="passwordLogin" required placeholder=" " pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onchange="validatePassword()">
               <label for="passwordLogin">Password</label>
-              <span id="messagePasswordLogin" style="color:red"></span>
             </div>
+            <span id="messagePasswordLogin" class="fieldMessage"></span>
             <a href="" class="fieldMessage" data-message="password">Forgot password?</a>
           </div>
           <button class="buttonPrimary" data-size="large" type="submit" id="submitLogin"><span>log in</span></button>
-          <p class="formLinkToSignUp">Dont have an account? <a href="signup.html">Sign up</a></p>
+          <p class="formLinkToSignUp">Dont have an account? <a href="pages/signup.html">Sign up</a></p>
         </form>
       </div>
     </section>

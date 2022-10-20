@@ -20,6 +20,12 @@ body {
 	// animation: gradient 20s ease-in-out infinite;
 }
 
+body.profileScreen {
+  background: url(../images/abstract-background.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -37,6 +43,7 @@ section {
   flex-grow: 1;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 .logo {
@@ -91,6 +98,45 @@ section:last-child .sectionContent {
   p {
     display: none;
   }
+}
+
+.sectionProfile {
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionProfile .dati {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $size-48;
+
+  .fullName {
+    @include headline-400;
+    background: linear-gradient(45deg, var(--red-a400), var(--blue-a400));
+    background-size: 100%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: $size-32;
+  }
+
+  .email, .age {
+    font-size: $size-20;
+    color: black;
+    padding: $size-8 0;
+    span {
+      color: var(--blue-grey-500);
+    }
+  }
+
+  .email span {
+    display: flex;
+    flex-direction: column;
+    margin-top: $size-8;
+  }
+}
+
+.profileScreen .buttonPrimary {
+  margin-bottom: $size-96;
 }
 
 @media only screen and (min-width: $mobile-large) {
