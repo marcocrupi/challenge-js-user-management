@@ -40,7 +40,7 @@ document
 
       if (
         response.status === 400 &&
-        name.value.length > 2 &&
+        name.value.length >= 2 &&
         regularExpression.test(name.value) &&
         age.value != "" &&
         email.value.match(validRegex) &&
@@ -128,7 +128,7 @@ const validateName = () => {
     document.getElementById("nameRegistrationLabel").style.color = "#ff1744";
   }
 
-  if (name.length > 2 && regularExpression.test(name)) {
+  if (name.length >= 2 && regularExpression.test(name)) {
     document.getElementById("messageNameSignup").innerHTML = "";
     document.getElementById("nameRegistration").style.outlineColor = "#00c853";
     document.getElementById("messageNameSignup").style.color = "#00c853";
