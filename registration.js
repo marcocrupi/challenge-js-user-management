@@ -5,12 +5,12 @@ document
 
     try {
       const URL = "https://api-nodejs-todolist.herokuapp.com/user/register";
-      const email = document.querySelector("#emailRegistration").value;
-      const pwd = document.querySelector("#passwordRegistration").value;
-      const name = document.querySelector("#nameRegistration").value;
-      const age = document.querySelector("#ageRegistration").value;
+      const email = document.querySelector("#emailRegistration");
+      const pwd = document.querySelector("#passwordRegistration");
+      const name = document.querySelector("#nameRegistration");
+      const age = document.querySelector("#ageRegistration");
 
-      validateForm(name, age, email, pwd);
+      validateForm(name.value, age.value, email.value, pwd.value);
 
       const response = await fetch(URL, {
         method: "POST",
@@ -19,10 +19,10 @@ document
         },
 
         body: JSON.stringify({
-          email: email,
-          password: pwd,
-          name: name,
-          age: age,
+          email: email.value,
+          password: pwd.value,
+          name: name.value,
+          age: age.value,
         }),
       });
       console.log(response);
@@ -30,7 +30,26 @@ document
       if (response.ok) {
         const data = await response.json();
         console.log(data);
-        window.location.href = "../index.html";
+        window.open("../index.html");
+      }
+
+      const regularExpression = /^[a-zA-Z ]+$/;
+      const validRegex =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      const regularExpressionPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
+      if (
+        response.status === 400 &&
+        name.value.length > 2 &&
+        regularExpression.test(name.value) &&
+        age.value != "" &&
+        email.value.match(validRegex) &&
+        regularExpressionPassword.test(pwd.value) &&
+        pwd.value.length >= 8
+      ) {
+        document.getElementById("messageEmailSignup").innerHTML =
+          "Email already exist!";
+        document.getElementById("messageEmailSignup").style.color = "#ff1744";
       } else {
         throw new Error(`HTTP error: ${response.status}`);
       }
@@ -83,16 +102,14 @@ const validateName = () => {
     document.getElementById("messageNameSignup").innerHTML =
       "Name must be 2 or more characters";
     document.querySelector("#nameRegistration").style.outlineColor = "#ff1744";
-    document.querySelector("#emailRegistrationName").style.color =
-      "#ff1744";
+    document.querySelector("#emailRegistrationName").style.color = "#ff1744";
   }
 
   if (!regularExpression.test(name)) {
     document.getElementById("messageNameSignup").innerHTML =
       "Invalid name (numbers and the empty input field are not allowed)";
-      document.querySelector("#nameRegistration").style.outlineColor =
-        "#ff1744";
-      document.querySelector("#emailRegistrationName").style.color = "#ff1744";
+    document.querySelector("#nameRegistration").style.outlineColor = "#ff1744";
+    document.querySelector("#emailRegistrationName").style.color = "#ff1744";
   }
 
   if (name.length > 2 && regularExpression.test(name)) {
@@ -127,16 +144,18 @@ function ageImposeMinMax(age) {
 const validateEmail = () => {
   const email = document.querySelector("#emailRegistration").value;
 
-  let validRegex =
+  const validRegex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   if (email.match(validRegex)) {
     document.getElementById("messageEmailSignup").innerHTML =
       "Valid email address!";
+    document.getElementById("messageEmailSignup").style.color = "#00c853";
     return true;
   } else {
     document.getElementById("messageEmailSignup").innerHTML =
       "Invalid email address!";
+    document.getElementById("messageEmailSignup").style.color = "#ff1744";
     return false;
   }
 };
