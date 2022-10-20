@@ -105,11 +105,14 @@
     text-decoration: none;
 
     &:hover {
-      text-decoration: underline;
+      text-decoration: none;
     }
 
     &[data-message=password] {
       color: var(--blue-a700);
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }

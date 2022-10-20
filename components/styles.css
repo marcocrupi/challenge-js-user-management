@@ -601,10 +601,13 @@ body {
   text-decoration: none;
 }
 .inputField .fieldMessage:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 .inputField .fieldMessage[data-message=password] {
   color: var(--blue-a700);
+}
+.inputField .fieldMessage[data-message=password]:hover {
+  text-decoration: underline;
 }
 
 .form {
