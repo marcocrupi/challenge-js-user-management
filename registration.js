@@ -30,7 +30,7 @@ document
       if (response.ok) {
         const data = await response.json();
         console.log(data);
-        window.open("../index.html");
+        window.location.href = "../index.html";
       }
 
       const regularExpression = /^[a-zA-Z ]+$/;

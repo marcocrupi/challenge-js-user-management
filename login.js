@@ -26,6 +26,21 @@ document.querySelector("#submitLogin").addEventListener("click", async (e) => {
       console.log(data);
       sessionStorage.setItem("token", data.token);
       window.location.href = "./pages/profile.html";
+    } 
+
+    const validRegex =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const regularExpressionPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
+    if (
+      response.status === 400 &&
+      email.value.match(validRegex) &&
+      regularExpressionPassword.test(pwd.value) &&
+      pwd.value.length >= 8
+    ) {
+      document.getElementById("messageEmailLogin").innerHTML =
+        "Email doesn't exist!";
+      document.getElementById("messageEmailLogin").style.color = "#ff1744";
     } else {
       throw new Error(`HTTP error: ${response.status}`);
     }
