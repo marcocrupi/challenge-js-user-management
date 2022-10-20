@@ -27,7 +27,7 @@
           <!-- Input field component -->
           <div class="inputField">
             <div class="fieldContainer">
-              <input type="text" id="nameRegistration" required placeholder=" " onkeydown="">
+              <input type="text" id="nameRegistration" required placeholder=" " onkeyup="validateName()">
               <label for="nameRegistration">Name</label>
             </div>
             <span id="messageNameSignup" class="fieldMessage"></span>
@@ -35,7 +35,7 @@
           <!-- Input field component -->
           <div class="inputField">
             <div class="fieldContainer">
-              <input type="number" id="ageRegistration" required placeholder=" " min="1" max="150" onkeyup="imposeMinMax(this)">
+              <input type="number" id="ageRegistration" required placeholder=" " min="1" max="200" onkeyup="ageImposeMinMax(this)">
               <label for="ageRegistration">Age</label>
             </div>
             <span id="messageAgeSignup" class="fieldMessage"></span>
@@ -43,7 +43,7 @@
           <!-- Input field component -->
           <div class="inputField">
             <div class="fieldContainer">
-              <input type="email" id="emailRegistration" required placeholder=" ">
+              <input type="email" id="emailRegistration" required placeholder=" " onkeyup="validateEmail()">
               <label for="emailRegistration">Email</label>
             </div>
             <span id="messageEmailSignup" class="fieldMessage"></span>
@@ -51,7 +51,7 @@
           <!-- Input field component -->
           <div class="inputField">
             <div class="fieldContainer">
-              <input type="password" id="passwordRegistration" required placeholder=" " pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onchange="validatePassword()">
+              <input type="password" id="passwordRegistration" required placeholder=" " pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onkeyup="validatePassword()">
               <label for="passwordRegistration">Password</label>
             </div>
             <span id="messagePasswordSignup" class="fieldMessage"></span>
