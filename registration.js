@@ -41,3 +41,16 @@ document
       console.error(`Catch: ${error}`);
     }
   });
+
+const validatePassword = () => {
+  const password = document.getElementById("passwordRegistration").value;
+  const regularExpression = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
+  if (!regularExpression.test(password)) {
+    document.getElementById("messagePasswordSignup").innerHTML =
+      "Password should contain at least one number, a lower-case letter, an upper-case letter and 8 or more characters";
+    return false;
+  } else {
+    document.getElementById("messagePasswordSignup").innerHTML = "";
+  }
+};

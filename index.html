@@ -36,8 +36,8 @@
             <div class="fieldContainer">
               <input type="password" id="passwordLogin" required placeholder=" " pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onchange="validatePassword()">
               <label for="passwordLogin">Password</label>
+              <span id="messagePasswordLogin" style="color:red"></span>
             </div>
-            <span id="message" style="color:red">
             <a href="" class="fieldMessage" data-message="password">Forgot password?</a>
           </div>
           <button class="buttonPrimary" data-size="large" type="submit" id="submitLogin"><span>log in</span></button>
