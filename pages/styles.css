@@ -785,7 +785,7 @@ section:last-child .sectionContent {
 }
 .profileScreen .sectionProfile .dati .fullName {
   font-family: "Helvetica Neue", sans-serif;
-  font-size: 3rem;
+  font-size: 2rem;
   line-height: 1;
   font-weight: bold;
   background: linear-gradient(45deg, var(--red-a400), var(--blue-a400));

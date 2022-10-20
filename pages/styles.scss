@@ -131,7 +131,7 @@ section:last-child .sectionContent {
     text-align: center;
 
     .fullName {
-      @include headline-400;
+      @include headline-500;
       background: linear-gradient(45deg, var(--red-a400), var(--blue-a400));
       background-size: 100%;
       background-clip: text;
