@@ -64,6 +64,9 @@ const validateForm = (name, age, email, pwd) => {
   if (name === "") {
     document.getElementById("messageNameSignup").innerHTML =
       "Name must be filled out";
+    document.getElementById("nameRegistration").style.outlineColor = "#ff1744";
+    document.getElementById("messageNameSignup").style.color = "#ff1744";
+    document.getElementById("nameRegistrationLabel").style.color = "#ff1744";
   } else {
     document.getElementById("messageNameSignup").innerHTML = "";
   }
@@ -71,6 +74,9 @@ const validateForm = (name, age, email, pwd) => {
   if (age === "") {
     document.getElementById("messageAgeSignup").innerHTML =
       "Age must be filled out";
+    document.getElementById("ageRegistration").style.outlineColor = "#ff1744";
+    document.getElementById("messageAgeSignup").style.color = "#ff1744";
+    document.getElementById("ageRegistrationLabel").style.color = "#ff1744";
   } else {
     document.getElementById("messageAgeSignup").innerHTML = "";
   }
@@ -78,6 +84,9 @@ const validateForm = (name, age, email, pwd) => {
   if (email === "") {
     document.getElementById("messageEmailSignup").innerHTML =
       "Email must be filled out";
+    document.getElementById("emailRegistration").style.outlineColor = "#ff1744";
+    document.getElementById("messageEmailSignup").style.color = "#ff1744";
+    document.getElementById("emailRegistrationLabel").style.color = "#ff1744";
   } else {
     document.getElementById("messageEmailSignup").innerHTML = "";
   }
@@ -85,6 +94,11 @@ const validateForm = (name, age, email, pwd) => {
   if (pwd.length === 0) {
     document.getElementById("messagePasswordSignup").innerHTML =
       "Password must be filled out";
+    document.getElementById("passwordRegistration").style.outlineColor =
+      "#ff1744";
+    document.getElementById("messagePasswordSignup").style.color = "#ff1744";
+    document.getElementById("passwordRegistrationLabel").style.color =
+      "#ff1744";
   } else {
     document.getElementById("messagePasswordSignup").innerHTML = "";
   }
@@ -101,27 +115,30 @@ const validateName = () => {
   if (name.length < 2) {
     document.getElementById("messageNameSignup").innerHTML =
       "Name must be 2 or more characters";
-    document.querySelector("#nameRegistration").style.outlineColor = "#ff1744";
-    document.querySelector("#emailRegistrationName").style.color = "#ff1744";
+    document.getElementById("nameRegistration").style.outlineColor = "#ff1744";
+    document.getElementById("messageNameSignup").style.color = "#ff1744";
+    document.getElementById("nameRegistrationLabel").style.color = "#ff1744";
   }
 
   if (!regularExpression.test(name)) {
     document.getElementById("messageNameSignup").innerHTML =
       "Invalid name (numbers and the empty input field are not allowed)";
-    document.querySelector("#nameRegistration").style.outlineColor = "#ff1744";
-    document.querySelector("#emailRegistrationName").style.color = "#ff1744";
+    document.getElementById("nameRegistration").style.outlineColor = "#ff1744";
+    document.getElementById("messageNameSignup").style.color = "#ff1744";
+    document.getElementById("nameRegistrationLabel").style.color = "#ff1744";
   }
 
   if (name.length > 2 && regularExpression.test(name)) {
     document.getElementById("messageNameSignup").innerHTML = "";
-    document.querySelector("#nameRegistration").style.outlineColor = "#00c853";
-    document.querySelector("#emailRegistrationName").style.color = "#00c853";
+    document.getElementById("nameRegistration").style.outlineColor = "#00c853";
+    document.getElementById("messageNameSignup").style.color = "#00c853";
+    document.getElementById("nameRegistrationLabel").style.color = "#00c853";
   }
 };
 
 // VALIDATION INPUT AGE
 
-document.querySelector("#ageRegistration").addEventListener("keypress", (e) => {
+document.querySelector("#ageRegistration").addEventListener("keydown", (e) => {
   if (e.key === "e") {
     e.preventDefault();
   }
@@ -130,12 +147,19 @@ document.querySelector("#ageRegistration").addEventListener("keypress", (e) => {
 
 function ageImposeMinMax(age) {
   if (age.value != "") {
+    document.getElementById("ageRegistration").style.outlineColor = "#00c853";
+    document.getElementById("messageAgeSignup").style.color = "#00c853";
+    document.getElementById("ageRegistrationLabel").style.color = "#00c853";
     if (parseInt(age.value) < parseInt(age.min)) {
       age.value = age.min;
     }
     if (parseInt(age.value) > parseInt(age.max)) {
       age.value = age.max;
     }
+  } else {
+    document.getElementById("ageRegistration").style.outlineColor = "#ff1744";
+    document.getElementById("messageAgeSignup").style.color = "#ff1744";
+    document.getElementById("ageRegistrationLabel").style.color = "#ff1744";
   }
 }
 
@@ -148,20 +172,17 @@ const validateEmail = () => {
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   if (email.match(validRegex)) {
-    document.getElementById("messageEmailSignup").innerHTML =
-      "";
+    document.getElementById("messageEmailSignup").innerHTML = "";
     document.getElementById("messageEmailSignup").style.color = "#00c853";
     document.getElementById("emailRegistration").style.outlineColor = "#00c853";
-    document.getElementById("emailRegistrationLabel").style.color =
-      "#00c853";
+    document.getElementById("emailRegistrationLabel").style.color = "#00c853";
     return true;
   } else {
     document.getElementById("messageEmailSignup").innerHTML =
       "Invalid email address!";
     document.getElementById("messageEmailSignup").style.color = "#ff1744";
     document.getElementById("emailRegistration").style.outlineColor = "#ff1744";
-    document.getElementById("emailRegistrationLabel").style.color =
-      "#ff1744";
+    document.getElementById("emailRegistrationLabel").style.color = "#ff1744";
     return false;
   }
 };
@@ -175,8 +196,18 @@ const validatePassword = () => {
   if (!regularExpression.test(pwd) || pwd.length < 8) {
     document.getElementById("messagePasswordSignup").innerHTML =
       "Password should contain at least one number, a lower-case letter, an upper-case letter and 8 or more characters";
+    document.getElementById("passwordRegistration").style.outlineColor =
+      "#ff1744";
+    document.getElementById("messagePasswordSignup").style.color = "#ff1744";
+    document.getElementById("passwordRegistrationLabel").style.color =
+      "#ff1744";
     return false;
   } else {
     document.getElementById("messagePasswordSignup").innerHTML = "";
+    document.getElementById("passwordRegistration").style.outlineColor =
+      "#00c853";
+    document.getElementById("messagePasswordSignup").style.color = "#00c853";
+    document.getElementById("passwordRegistrationLabel").style.color =
+      "#00c853";
   }
 };
