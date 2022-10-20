@@ -34,7 +34,7 @@
           <!-- Input field component -->
           <div class="inputField">
             <div class="fieldContainer">
-              <input type="password" id="passwordLogin" required placeholder=" ">
+              <input type="password" id="passwordLogin" required placeholder=" " pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
               <label for="passwordLogin">Password</label>
             </div>
             <a href="" class="fieldMessage" data-message="password">Forgot password?</a>
