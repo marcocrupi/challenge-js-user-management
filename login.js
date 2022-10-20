@@ -38,9 +38,9 @@ document.querySelector("#submitLogin").addEventListener("click", async (e) => {
       regularExpressionPassword.test(pwd.value) &&
       pwd.value.length >= 8
     ) {
-      document.getElementById("messageEmailLogin").innerHTML =
-        "Email doesn't exist!";
-      document.getElementById("messageEmailLogin").style.color = "#ff1744";
+      document.getElementById("messageEmailPassLogin").innerHTML =
+        "Email or password is incorrect!";
+      document.getElementById("messageEmailPassLogin").style.color = "#ff1744";
     } else {
       throw new Error(`HTTP error: ${response.status}`);
     }
