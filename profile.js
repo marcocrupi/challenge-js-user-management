@@ -40,3 +40,10 @@ function injectHtml(data) {
       </div>
       `;
 }
+
+const logout = document.getElementById("logout");
+
+logout.addEventListener("click", () => {
+  sessionStorage.removeItem("token");
+  window.location.href = "../index.html";
+});

@@ -20,7 +20,7 @@ document.querySelector("#submitLogin").addEventListener("click", async (e) => {
       const data = await response.json();
       console.log(data);
       sessionStorage.setItem("token", data.token);
-      window.open("./pages/profile.html");
+      window.location.href = "./pages/profile.html";
     } else {
       throw new Error(`HTTP error: ${response.status}`);
     }
