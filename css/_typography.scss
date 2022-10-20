@@ -1,0 +1,90 @@
+$fontFamily: "Helvetica Neue", sans-serif;
+
+body {
+  font-family: $fontFamily;
+}
+
+@mixin headline-100($weight: 'bold') {
+  font-family: $fontFamily;
+  font-size: $size-96;
+  line-height: 1;
+
+  @if $weight == 'regular' {
+    font-weight: normal;
+  } @else if $weight == 'medium' {
+    font-weight: 400;
+  } @else if $weight == 'bold' {
+    font-weight: bold;
+  }
+}
+
+@mixin headline-200($weight: 'bold') {
+  font-family: $fontFamily;
+  font-size: $size-64;
+  line-height: 1;
+
+  @if $weight == 'regular' {
+    font-weight: normal;
+  } @else if $weight == 'medium' {
+    font-weight: 400;
+  } @else if $weight == 'bold' {
+    font-weight: bold;
+  }
+}
+
+@mixin headline-300($weight: 'bold') {
+  font-family: $fontFamily;
+  font-size: $size-56;
+  line-height: 1;
+
+  @if $weight == 'regular' {
+    font-weight: normal;
+  } @else if $weight == 'medium' {
+    font-weight: 400;
+  } @else if $weight == 'bold' {
+    font-weight: bold;
+  }
+}
+
+@mixin headline-400($weight: 'bold') {
+  font-family: $fontFamily;
+  font-size: $size-48;
+  line-height: 1;
+
+  @if $weight == 'regular' {
+    font-weight: normal;
+  } @else if $weight == 'medium' {
+    font-weight: 400;
+  } @else if $weight == 'bold' {
+    font-weight: bold;
+  }
+}
+
+@mixin headline-500($weight: 'bold') {
+  font-family: $fontFamily;
+  font-size: $size-32;
+  line-height: 1;
+
+  @if $weight == 'regular' {
+    font-weight: normal;
+  } @else if $weight == 'medium' {
+    font-weight: 400;
+  } @else if $weight == 'bold' {
+    font-weight: bold;
+  }
+}
+
+@mixin headline-600($weight: 'bold') {
+  font-family: $fontFamily;
+  font-size: $size-24;
+  line-height: 1;
+
+  @if $weight == 'regular' {
+    font-weight: normal;
+  } @else if $weight == 'medium' {
+    font-weight: 400;
+  } @else if $weight == 'bold' {
+    font-weight: bold;
+  }
+}
+

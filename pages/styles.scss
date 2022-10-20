@@ -1,0 +1,238 @@
+@import '../main.scss';
+@import '../components/form/form.scss';
+@import '../components/inputField/inputField.scss';
+@import '../components/buttonPrimary/buttonPrimary.scss';
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  background: linear-gradient(45deg, var(--indigo-a200), var(--red-a200));
+	background-size: 150%;
+  padding: 0;
+  @keyframes gradient {
+    0% {    background-position: 0%; }
+    50% {   background-position: 100%; }
+    100% {  background-position: 0%; }
+  }
+	// animation: gradient 20s ease-in-out infinite;
+}
+
+body.profileScreen {
+  background: url(../images/abstract-background.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: $tablet;
+  margin: 0 auto;
+  background-color: white;
+  overflow: hidden;
+}
+
+section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.logo {
+  display: flex;
+  align-self: flex-start;
+  width: auto;
+  height: $size-32;
+}
+
+.sectionContent {
+  display: flex;
+  flex-direction: column;
+  padding: $size-48;
+}
+
+section:first-child .sectionContent {
+  color: white;
+}
+
+section:first-child h6 {
+  display: none;
+}
+
+section:first-child {
+  height: 50vh;
+}
+
+section:last-child {
+  margin-right: $size-16;
+  margin-left: $size-16;
+  background-color: white;
+  margin-top: -64px;
+  margin-bottom: $size-64;
+  box-shadow: 0 $size-16 $size-48 rgba(0,0,0,0.25);
+  border-radius: 8px;
+}
+
+section:last-child .sectionContent {
+  padding: $size-32;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: $size-32 0;
+
+  h1 {
+    @include headline-400(bold);
+  }
+
+  p {
+    display: none;
+  }
+}
+
+.profileScreen {
+  section:last-child {
+    margin-top: -150px;
+  }
+
+  .sectionContent {
+    align-items: center;
+  }
+
+  .profilePicture {
+    display: flex;
+    flex-direction: column;
+    width: $size-96;
+    height: $size-96;
+    background-size: cover;
+    background-position: center;
+    border-radius: 100%;
+  }
+
+  .buttonPrimary {
+    // margin-bottom: $size-96;
+  }
+
+  .sectionProfile {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sectionProfile .dati {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $size-48;
+    text-align: center;
+
+    .fullName {
+      @include headline-500;
+      background: linear-gradient(45deg, var(--red-a400), var(--blue-a400));
+      background-size: 100%;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: $size-32 0;
+      line-height: 1.4;
+    }
+
+    .email, .age {
+      font-size: $size-20;
+      color: black;
+      padding: $size-8 0;
+      span {
+        color: var(--blue-grey-500);
+      }
+    }
+
+    .email span {
+      display: flex;
+      flex-direction: column;
+      margin-top: $size-8;
+    }
+  }
+}
+
+@media only screen and (min-width: $mobile-large) {
+  body {
+    padding: $size-48;
+  }
+
+  .loginScreen {
+    section:last-child {
+      padding-bottom: $size-96;
+    }
+  }
+
+  main {
+    flex-direction: row;
+    border-radius: 4px;
+    box-shadow: 0 16px 32px rgba(0,0,0,0.2);
+  }
+  section:first-child {
+    flex-basis: 55%;
+    width: 55%;
+    height: auto;
+    // min-height: 70vh;
+  }
+
+  section:first-child .sectionContent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  section:last-child {
+    flex-basis: 45%;
+    width: 45%;
+    margin: 0;
+  }
+
+  section:last-child .sectionContent {
+    padding: $size-48;
+  }
+
+  .textContainer {
+    p {
+      display: flex;
+      flex-direction: column;
+      font-size: $size-16;
+      padding: $size-32 0;
+      line-height: 1.6;
+      a {
+        color: white;
+        font-weight: bold;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  section:first-child h6 {
+    display: flex;
+    a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      &:hover {
+        color: white;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .profileScreen {
+    section:last-child {
+      margin-top: 0;
+    }
+  }
+}

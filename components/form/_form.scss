@@ -1,0 +1,40 @@
+.form {
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    text-transform: uppercase;
+    margin-bottom: $size-32;
+    @include headline-600(bold);
+    line-height: 1.4;
+    color: black;
+    align-self: flex-start;
+    background: linear-gradient(45deg, var(--red-a400), var(--blue-a400));
+    background-size: 100%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .inputField {
+    padding: $size-12 0;
+  }
+  
+  .buttonPrimary {
+    margin-top: $size-16;
+  }
+
+  .formLinkToSignUp {
+    text-align: center;
+    padding-top: $size-32;
+    font-size: $size-14;
+
+    a {
+      font-weight: bold;
+      text-decoration: none;
+      color: var(--blue-a700);
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
