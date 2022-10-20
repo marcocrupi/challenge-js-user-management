@@ -27,16 +27,18 @@
           <!-- Input field component -->
           <div class="inputField">
             <div class="fieldContainer">
-              <input type="text" id="nameRegistration" required placeholder=" ">
+              <input type="text" id="nameRegistration" required placeholder=" " onkeydown="">
               <label for="nameRegistration">Name</label>
             </div>
+            <span id="messageNameSignup" class="fieldMessage"></span>
           </div>
           <!-- Input field component -->
           <div class="inputField">
             <div class="fieldContainer">
-              <input type="number" id="ageRegistration" required placeholder=" " min="0" max="150" onkeyup="imposeMinMax(this)">
+              <input type="number" id="ageRegistration" required placeholder=" " min="1" max="150" onkeyup="imposeMinMax(this)">
               <label for="ageRegistration">Age</label>
             </div>
+            <span id="messageAgeSignup" class="fieldMessage"></span>
           </div>
           <!-- Input field component -->
           <div class="inputField">
@@ -44,6 +46,7 @@
               <input type="email" id="emailRegistration" required placeholder=" ">
               <label for="emailRegistration">Email</label>
             </div>
+            <span id="messageEmailSignup" class="fieldMessage"></span>
           </div>
           <!-- Input field component -->
           <div class="inputField">

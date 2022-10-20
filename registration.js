@@ -10,10 +10,7 @@ document
       const name = document.querySelector("#nameRegistration").value;
       const age = document.querySelector("#ageRegistration").value;
 
-      if (pwd.length < 8) {
-        validatePassword();
-        return false;
-      }
+      validateForm(name,age,email,pwd);
 
       const response = await fetch(URL, {
         method: "POST",
@@ -43,10 +40,10 @@ document
   });
 
 const validatePassword = () => {
-  const password = document.getElementById("passwordRegistration").value;
+  const pwd = document.querySelector("#passwordRegistration").value;
   const regularExpression = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
-  if (!regularExpression.test(password)) {
+  if (!regularExpression.test(pwd) || pwd.length < 8) {
     document.getElementById("messagePasswordSignup").innerHTML =
       "Password should contain at least one number, a lower-case letter, an upper-case letter and 8 or more characters";
     return false;
@@ -71,3 +68,35 @@ function imposeMinMax(el) {
     }
   }
 }
+
+const validateForm = (name,age,email,pwd) => {
+  if (name === "") {
+    document.getElementById("messageNameSignup").innerHTML =
+      "Name must be filled out";
+  } else {
+    document.getElementById("messageNameSignup").innerHTML = "";
+  }
+
+  if (age === "") {
+    document.getElementById("messageAgeSignup").innerHTML =
+      "Age must be filled out";
+  } else {
+    document.getElementById("messageAgeSignup").innerHTML = "";
+  }
+
+  if (email === "") {
+    document.getElementById("messageEmailSignup").innerHTML =
+      "Email must be filled out";
+  } else {
+    document.getElementById("messageEmailSignup").innerHTML = "";
+  }
+
+  if (pwd.length === 0) {
+    document.getElementById("messagePasswordSignup").innerHTML =
+      "Password must be filled out";
+  } else {
+    document.getElementById("messagePasswordSignup").innerHTML = "";
+  }
+  
+  return false;
+};
