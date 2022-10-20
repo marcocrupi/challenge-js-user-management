@@ -82,15 +82,23 @@ const validateName = () => {
   if (name.length < 2) {
     document.getElementById("messageNameSignup").innerHTML =
       "Name must be 2 or more characters";
+    document.querySelector("#nameRegistration").style.outlineColor = "#ff1744";
+    document.querySelector("#emailRegistrationName").style.color =
+      "#ff1744";
   }
 
   if (!regularExpression.test(name)) {
     document.getElementById("messageNameSignup").innerHTML =
-      "Numbers are not allowed";
+      "Invalid name (numbers and the empty input field are not allowed)";
+      document.querySelector("#nameRegistration").style.outlineColor =
+        "#ff1744";
+      document.querySelector("#emailRegistrationName").style.color = "#ff1744";
   }
 
   if (name.length > 2 && regularExpression.test(name)) {
     document.getElementById("messageNameSignup").innerHTML = "";
+    document.querySelector("#nameRegistration").style.outlineColor = "#00c853";
+    document.querySelector("#emailRegistrationName").style.color = "#00c853";
   }
 };
 
