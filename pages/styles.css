@@ -761,17 +761,29 @@ section:last-child .sectionContent {
   display: none;
 }
 
-.sectionProfile {
+.profileScreen .sectionContent {
+  align-items: center;
+}
+.profileScreen .profilePicture {
+  display: flex;
+  flex-direction: column;
+  width: 6rem;
+  height: 6rem;
+  background-size: cover;
+  background-position: center;
+  border-radius: 100%;
+}
+.profileScreen .sectionProfile {
   display: flex;
   flex-direction: column;
 }
-
-.sectionProfile .dati {
+.profileScreen .sectionProfile .dati {
   display: flex;
   flex-direction: column;
   margin-bottom: 3rem;
+  text-align: center;
 }
-.sectionProfile .dati .fullName {
+.profileScreen .sectionProfile .dati .fullName {
   font-family: "Helvetica Neue", sans-serif;
   font-size: 3rem;
   line-height: 1;
@@ -781,24 +793,20 @@ section:last-child .sectionContent {
   -webkit-background-clip: text;
           background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 2rem;
+  margin: 2rem 0;
 }
-.sectionProfile .dati .email, .sectionProfile .dati .age {
+.profileScreen .sectionProfile .dati .email, .profileScreen .sectionProfile .dati .age {
   font-size: 1.25rem;
   color: black;
   padding: 0.5rem 0;
 }
-.sectionProfile .dati .email span, .sectionProfile .dati .age span {
+.profileScreen .sectionProfile .dati .email span, .profileScreen .sectionProfile .dati .age span {
   color: var(--blue-grey-500);
 }
-.sectionProfile .dati .email span {
+.profileScreen .sectionProfile .dati .email span {
   display: flex;
   flex-direction: column;
   margin-top: 0.5rem;
-}
-
-.profileScreen .buttonPrimary {
-  margin-bottom: 6rem;
 }
 
 @media only screen and (min-width: 426px) {

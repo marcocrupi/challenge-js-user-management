@@ -100,43 +100,60 @@ section:last-child .sectionContent {
   }
 }
 
-.sectionProfile {
-  display: flex;
-  flex-direction: column;
-}
-
-.sectionProfile .dati {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: $size-48;
-
-  .fullName {
-    @include headline-400;
-    background: linear-gradient(45deg, var(--red-a400), var(--blue-a400));
-    background-size: 100%;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: $size-32;
+.profileScreen {
+  .sectionContent {
+    align-items: center;
   }
 
-  .email, .age {
-    font-size: $size-20;
-    color: black;
-    padding: $size-8 0;
-    span {
-      color: var(--blue-grey-500);
-    }
-  }
-
-  .email span {
+  .profilePicture {
     display: flex;
     flex-direction: column;
-    margin-top: $size-8;
+    width: $size-96;
+    height: $size-96;
+    background-size: cover;
+    background-position: center;
+    border-radius: 100%;
   }
-}
 
-.profileScreen .buttonPrimary {
-  margin-bottom: $size-96;
+  .buttonPrimary {
+    // margin-bottom: $size-96;
+  }
+
+  .sectionProfile {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sectionProfile .dati {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $size-48;
+    text-align: center;
+
+    .fullName {
+      @include headline-400;
+      background: linear-gradient(45deg, var(--red-a400), var(--blue-a400));
+      background-size: 100%;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: $size-32 0;
+    }
+
+    .email, .age {
+      font-size: $size-20;
+      color: black;
+      padding: $size-8 0;
+      span {
+        color: var(--blue-grey-500);
+      }
+    }
+
+    .email span {
+      display: flex;
+      flex-direction: column;
+      margin-top: $size-8;
+    }
+  }
 }
 
 @media only screen and (min-width: $mobile-large) {
