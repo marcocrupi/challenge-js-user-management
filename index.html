@@ -27,8 +27,8 @@
           <!-- Input field component -->
           <div class="inputField">
             <div class="fieldContainer">
-              <input type="email" id="emailLogin" required placeholder=" ">
-              <label for="emailLogin">Email</label>
+              <input type="email" id="emailLogin" required placeholder=" " onkeyup="validateEmail()">
+              <label for="emailLogin" id="emailLoginLabel">Email</label>
             </div>
             <span id="messageEmailLogin" class="fieldMessage"></span>
           </div>
@@ -36,7 +36,7 @@
           <div class="inputField">
             <div class="fieldContainer">
               <input type="password" id="passwordLogin" required placeholder=" " pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onchange="validatePassword()">
-              <label for="passwordLogin">Password</label>
+              <label for="passwordLogin" id="passwordLoginLabel">Password</label>
             </div>
             <span id="messagePasswordLogin" class="fieldMessage"></span>
             <a href="" class="fieldMessage" data-message="password">Forgot password?</a>

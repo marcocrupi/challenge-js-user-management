@@ -149,13 +149,19 @@ const validateEmail = () => {
 
   if (email.match(validRegex)) {
     document.getElementById("messageEmailSignup").innerHTML =
-      "Valid email address!";
+      "";
     document.getElementById("messageEmailSignup").style.color = "#00c853";
+    document.getElementById("emailRegistration").style.outlineColor = "#00c853";
+    document.getElementById("emailRegistrationLabel").style.color =
+      "#00c853";
     return true;
   } else {
     document.getElementById("messageEmailSignup").innerHTML =
       "Invalid email address!";
     document.getElementById("messageEmailSignup").style.color = "#ff1744";
+    document.getElementById("emailRegistration").style.outlineColor = "#ff1744";
+    document.getElementById("emailRegistrationLabel").style.color =
+      "#ff1744";
     return false;
   }
 };

@@ -66,3 +66,30 @@ const validateForm = (email, pwd) => {
 
   return false;
 };
+
+// VALIDATION INPUT EMAIL
+
+const validateEmail = () => {
+  const email = document.querySelector("#emailLogin").value;
+
+  const validRegex =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  if (email.match(validRegex)) {
+    document.getElementById("messageEmailLogin").innerHTML =
+      "";
+    document.querySelector("#emailLogin").style.outlineColor = "#00c853";
+    document.querySelector("#messageEmailLogin").style.color = "#00c853";
+    document.querySelector("#emailLoginLabel").style.color = "#00c853";
+
+    return true;
+  } else {
+    document.getElementById("messageEmailLogin").innerHTML =
+      "Invalid email address!";
+    document.querySelector("#emailLogin").style.outlineColor = "#ff1744";
+    document.querySelector("#messageEmailLogin").style.color = "#ff1744";
+    document.querySelector("#emailLoginLabel").style.color = "#ff1744";
+
+    return false;
+  }
+};
