@@ -54,3 +54,9 @@ const validatePassword = () => {
     document.getElementById("messagePasswordSignup").innerHTML = "";
   }
 };
+
+document.querySelector("#ageRegistration").addEventListener("keypress", (e) => {
+  if (e.key === "e") {
+    e.preventDefault();
+  }
+});
