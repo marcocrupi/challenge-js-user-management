@@ -2,6 +2,11 @@ document.querySelector("#submitLogin").addEventListener("click", async (e) => {
   e.preventDefault();
 
   try {
+    const email = document.querySelector("#emailLogin");
+    const pwd = document.querySelector("#passwordLogin");
+
+    validateForm(email.value, pwd.value);
+
     const response = await fetch(
       "https://api-nodejs-todolist.herokuapp.com/user/login",
       {
@@ -10,8 +15,8 @@ document.querySelector("#submitLogin").addEventListener("click", async (e) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email: document.querySelector("#emailLogin").value,
-          password: document.querySelector("#passwordLogin").value,
+          email: email.value,
+          password: pwd.value,
         }),
       }
     );
@@ -40,4 +45,24 @@ const validatePassword = () => {
   } else {
     document.getElementById("messagePasswordLogin").innerHTML = "";
   }
+};
+
+// VALIDATION OF ALL FORM
+
+const validateForm = (email, pwd) => {
+  if (email === "") {
+    document.getElementById("messageEmailLogin").innerHTML =
+      "Email must be filled out";
+  } else {
+    document.getElementById("messageEmailLogin").innerHTML = "";
+  }
+
+  if (pwd.length === 0) {
+    document.getElementById("messagePasswordLogin").innerHTML =
+      "Password must be filled out";
+  } else {
+    document.getElementById("messagePasswordLogin").innerHTML = "";
+  }
+
+  return false;
 };
