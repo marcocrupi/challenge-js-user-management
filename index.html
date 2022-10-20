@@ -1,35 +1,51 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="./login.js" defer></script>
+  <title>Welcome back!</title>
+  <link rel="stylesheet" href="./pages/styles.css" type="text/css">
 </head>
+<body class="loginScreen">
 
-<body>
-  <div class="container">
-    <h2>Login</h2>
-    <form action="/profile.html" class="registrationForm">
-      <div class="input-group">
-        <label for="email" class="label">Email</label>
-        <input type="email" id="emailLogin" class="input">
-        <span class="error-message"></span>
+  <main>
+    <section style="background-image: url(../images/abstract-background.jpg)">
+      <div class="sectionContent">
+        <img class="logo" src="../images/logo.png" alt="Image of the logo">
+        <div class="textContainer">
+          <h1>Welcome back!</h1>
+          <p>Don't have an account?<br><a href="signup.html">Sign up</a></p>
+        </div>
+        <h6><a href="">www.companywebsite.com</a></h6>
       </div>
-      <br>
-      <div class="input-group">
-        <label for="password" class="label">Password</label>
-        <input type="password" id="passwordLogin" class="input">
-        <span class="error-message"></span>
+    </section>
+    <section>
+      <div class="sectionContent">
+        <!-- Form Component -->
+        <form class="form">
+          <h2>Log in:</h2>
+          <!-- Input field component -->
+          <div class="inputField">
+            <div class="fieldContainer">
+              <input type="email" id="emailLogin" required placeholder=" ">
+              <label for="emailLogin">Email</label>
+            </div>
+          </div>
+          <!-- Input field component -->
+          <div class="inputField">
+            <div class="fieldContainer">
+              <input type="password" id="passwordLogin" required placeholder=" ">
+              <label for="passwordLogin">Password</label>
+            </div>
+            <a href="" class="fieldMessage" data-message="password">Forgot password?</a>
+          </div>
+          <button class="buttonPrimary" data-size="large" type="submit" id="submitLogin"><span>log in</span></button>
+          <p class="formLinkToSignUp">Dont have an account? <a href="signup.html">Sign up</a></p>
+        </form>
       </div>
-      <br>
-      <button class="button" type="submit" id="submitLogin">Accedi ora</button>
-      <button><a href="./registration.html" class="buttonStyle">Registrati</a></button>
+    </section>
+  </main>
 
-    </form>
-  </div>
+  <script src="./login.js" defer></script>
 </body>
-
 </html>

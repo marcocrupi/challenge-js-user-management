@@ -34,9 +34,9 @@ getUser();
 function injectHtml(data) {
   return `
       <div class="Dati">
-        <p class="email">${data.email}</p>
-        <p class="fullName">${data.name}</p>
-        <p class="age">${data.age}</p>
+        <p class="email">Email: ${data.email}</p>
+        <p class="fullName">Name: ${data.name}</p>
+        <p class="age">Age: ${data.age}</p>
       </div>
       `;
 }
