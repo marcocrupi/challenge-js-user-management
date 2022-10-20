@@ -6,7 +6,7 @@
     text-transform: uppercase;
     margin-bottom: $size-32;
     @include headline-600(bold);
-    line-height: 1.2;
+    line-height: 1.4;
     color: black;
     align-self: flex-start;
     background: linear-gradient(45deg, var(--red-a400), var(--blue-a400));

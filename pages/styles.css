@@ -398,7 +398,7 @@ body {
   font-size: 1.5rem;
   line-height: 1;
   font-weight: bold;
-  line-height: 1.2;
+  line-height: 1.4;
   color: black;
   align-self: flex-start;
   background: linear-gradient(45deg, var(--red-a400), var(--blue-a400));
@@ -761,6 +761,9 @@ section:last-child .sectionContent {
   display: none;
 }
 
+.profileScreen section:last-child {
+  margin-top: -150px;
+}
 .profileScreen .sectionContent {
   align-items: center;
 }
@@ -794,6 +797,7 @@ section:last-child .sectionContent {
           background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 2rem 0;
+  line-height: 1.4;
 }
 .profileScreen .sectionProfile .dati .email, .profileScreen .sectionProfile .dati .age {
   font-size: 1.25rem;
@@ -864,5 +868,8 @@ section:last-child .sectionContent {
   section:first-child h6 a:hover {
     color: white;
     text-decoration: underline;
+  }
+  .profileScreen section:last-child {
+    margin-top: 0;
   }
 }/*# sourceMappingURL=styles.css.map */

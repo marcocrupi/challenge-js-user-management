@@ -101,6 +101,10 @@ section:last-child .sectionContent {
 }
 
 .profileScreen {
+  section:last-child {
+    margin-top: -150px;
+  }
+
   .sectionContent {
     align-items: center;
   }
@@ -137,6 +141,7 @@ section:last-child .sectionContent {
       background-clip: text;
       -webkit-text-fill-color: transparent;
       margin: $size-32 0;
+      line-height: 1.4;
     }
 
     .email, .age {
@@ -222,6 +227,12 @@ section:last-child .sectionContent {
         color: white;
         text-decoration: underline;
       }
+    }
+  }
+
+  .profileScreen {
+    section:last-child {
+      margin-top: 0;
     }
   }
 }

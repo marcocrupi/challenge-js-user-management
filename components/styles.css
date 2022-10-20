@@ -618,7 +618,7 @@ body {
   font-size: 1.5rem;
   line-height: 1;
   font-weight: bold;
-  line-height: 1.2;
+  line-height: 1.4;
   color: black;
   align-self: flex-start;
   background: linear-gradient(45deg, var(--red-a400), var(--blue-a400));
