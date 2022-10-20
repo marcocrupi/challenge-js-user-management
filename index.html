@@ -35,7 +35,7 @@
           <!-- Input field component -->
           <div class="inputField">
             <div class="fieldContainer">
-              <input type="password" id="passwordLogin" required placeholder=" " pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onchange="validatePassword()">
+              <input type="password" id="passwordLogin" required placeholder=" " pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onkeyup="validatePassword()">
               <label for="passwordLogin" id="passwordLoginLabel">Password</label>
             </div>
             <span id="messagePasswordLogin" class="fieldMessage"></span>

@@ -34,19 +34,6 @@ document.querySelector("#submitLogin").addEventListener("click", async (e) => {
   }
 });
 
-const validatePassword = () => {
-  const password = document.getElementById("passwordLogin").value;
-  const regularExpression = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-
-  if (!regularExpression.test(password)) {
-    document.getElementById("messagePasswordLogin").innerHTML =
-      "Password should contain at least one number, a lower-case letter, an upper-case letter and 8 or more characters";
-    return false;
-  } else {
-    document.getElementById("messagePasswordLogin").innerHTML = "";
-  }
-};
-
 // VALIDATION OF ALL FORM
 
 const validateForm = (email, pwd) => {
@@ -76,8 +63,7 @@ const validateEmail = () => {
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   if (email.match(validRegex)) {
-    document.getElementById("messageEmailLogin").innerHTML =
-      "";
+    document.getElementById("messageEmailLogin").innerHTML = "";
     document.querySelector("#emailLogin").style.outlineColor = "#00c853";
     document.querySelector("#messageEmailLogin").style.color = "#00c853";
     document.querySelector("#emailLoginLabel").style.color = "#00c853";
@@ -91,5 +77,20 @@ const validateEmail = () => {
     document.querySelector("#emailLoginLabel").style.color = "#ff1744";
 
     return false;
+  }
+};
+
+// VALIDATION INPUT PASSWORD
+
+const validatePassword = () => {
+  const password = document.getElementById("passwordLogin").value;
+  const regularExpression = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
+  if (!regularExpression.test(password)) {
+    document.getElementById("messagePasswordLogin").innerHTML =
+      "Password should contain at least one number, a lower-case letter, an upper-case letter and 8 or more characters";
+    return false;
+  } else {
+    document.getElementById("messagePasswordLogin").innerHTML = "";
   }
 };
